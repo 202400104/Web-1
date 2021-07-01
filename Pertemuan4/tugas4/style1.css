@@ -1,0 +1,19 @@
+body {
+    background-color:#aabbcc;
+    font-family:"century gothic";
+}
+h1 {
+    font-family : "times new roman";
+    font-size : 60px;
+    color : darkblue
+}
+h3 {
+    text-transform : uppercase;
+}
+h4 {
+    font-size : 12px;
+    font-style : italic;
+}
+p {
+    text-align : justify;
+}
