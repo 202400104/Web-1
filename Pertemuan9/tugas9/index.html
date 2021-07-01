@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 9 20.240.0104 - Febiadi Wisnu Akbar</title>
+</head>
+<body>
+    Nama : <input type="text" id="nama"><br>
+    Berat Badan : <input type="number" id="bb" value="1" min="1"> kg<br>
+    Tinggi Badan : <input type="number" id="tb" value="1" min="1"> cm<br>
+    <button onclick="hitung()">Hitung Index Massa Tubuh</button>
+    
+    <p id="pimt"></p>
+    <p id="phasil"></p>
+    
+    <table id="daftar" border="1">
+        <tr>
+            <td>Nama</td>
+            <td>Berat Badan</td>
+            <td>Tinggi Badan</td>
+            <td>IMT</td>
+            <td>Hasil</td>
+        </tr>
+    </table>
+</body>
+<script>
+    function hitung() {
+        // rumus imt
+        var varimt = (bb.value/((tb.value*0.01)**2));
+
+        // kategori berat badan
+        var hasil="";
+        if (varimt<18.5) {
+            hasil = "Berat Badan Kurang";
+        } else if ((varimt>=18.5)&&(varimt<=22.9)) {
+            hasil = "Berat Badan Normal";
+        } else if ((varimt>=23)&&(varimt<=29.9)) {
+            hasil = "Berat Badan Berlebih";
+        } else {
+            hasil = "Obesitas";
+        }
+
+        // menampilkan pada bagian tabel
+        document.getElementById("daftar").innerHTML+="<tr><td>"
+            +nama.value+"</td><td>"
+            +bb.value+"</td><td>"
+            +tb.value+"</td><td>"
+            +varimt.toFixed(2)+"</td><td>"
+            +varimt.toFixed(2)+"</td><td>"
+            +hasil+"</td></tr>";
+
+        // menampilkan hasil perhitungan imt
+        document.getElementById("pimt").innerHTML+=varimt.toFixed(2);
+        document.getElementById("phasil").innerHTML+=hasil;
+
+        // membersihkan inputan
+        document.getElementById("nama").value="";
+        document.getElementById("bb").value="1";
+        document.getElementById("tb").value="1";
+        document.getElementById("nama").focus();
+    } function awal() {
+        document.getElementById("nama").focus();
+    }
+</script>
+</html>
